@@ -21,6 +21,14 @@ When screenshot details are unreadable, use [reference-image-analysis.md](refere
 7. Fix the highest-impact root causes first.
 8. Re-render and repeat until no important issue remains.
 
+## Repeatable browser checks
+
+For repeatable UI checks, prefer the project's existing test tooling. If none exists and the environment supports it, consider Playwright; it is optional, not a skill dependency. Use the host's available browser tools for focused checks, and keep setup proportional to the task rather than adding a test framework solely for a small visual fix. Cover the primary flow, representative viewport sizes, keyboard interaction, and reduced motion.
+
+Compare screenshots against a reviewed baseline in a consistent rendering environment. Inspect differences and accept only intended changes; never update baselines merely to make tests pass. A matching screenshot does not establish good design or correct motion: verify animation separately using the browser checks below. If tools are unavailable, identify the exact checks left unverified.
+
+For implementation details, consult the official [Playwright visual-comparison guide](https://playwright.dev/docs/test-snapshots) and [emulation guide](https://playwright.dev/docs/emulation).
+
 ## What to inspect
 
 | Category | Questions |
