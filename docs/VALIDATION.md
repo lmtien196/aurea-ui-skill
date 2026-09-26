@@ -27,6 +27,17 @@ These are evaluation prompts and acceptance criteria, not claimed completed demo
 
 For each run record date, agent/model, stack/package versions, viewport(s), actual tool availability, artifacts, observed results, and unresolved limitations. Do not infer mobile hardware performance from a desktop screenshot.
 
+## Cross-agent smoke test
+
+This checklist is for future host testing, not a claim that all hosts have passed. Keep documentation-based compatibility separate from observed runtime results.
+
+1. Record the application/version, model, OS/runtime environment, installation path, and skill commit. Install the complete folder in one documented location without replacing another skill or changing unrelated settings.
+2. Confirm that `aurea-ui` appears in the host's discovered skills. Invoke it explicitly using that host's convention and verify that the entrypoint and a task-relevant reference were actually read.
+3. In a fresh session, request a small UI design task without naming the skill. Record whether the host selects it, requests consent, or does not activate it. Do not infer automatic activation from an explicit-invocation test.
+4. Run a relevant manual scenario above in a disposable project. Check the rendered result when tools permit, including keyboard behavior and reduced motion for interactive work.
+5. Test a missing-tool or offline scenario. Confirm that unavailable research, image generation, and browser checks are reported honestly rather than fabricated.
+6. Publish the evidence and limitations for that exact host/version. A successful parse or package validation alone is not an end-to-end compatibility test.
+
 ## Current limits
 
 - New guidance has been structurally checked, but the complete expanded package has not been benchmarked across agents.

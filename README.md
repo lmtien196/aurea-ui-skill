@@ -1,6 +1,6 @@
 # Aurea UI
 
-Research, design, visual assets, implementation, and verification for product-specific websites and web applications.
+A portable UI/UX skill for AI agents: research, design, visual assets, implementation, and verification for product-specific websites and web applications.
 
 [Tiếng Việt](README.vi.md) · [Skill entrypoint](skills/aurea-ui/SKILL.md) · [Sources](SOURCES.md) · [Validation](docs/VALIDATION.md) · [Release checklist](docs/RELEASE.md)
 
@@ -20,13 +20,32 @@ The skill adapts to an existing product's brand and stack. It is a set of agent 
 
 Download or clone this repository. Copy the complete `skills/aurea-ui` directory into your agent's supported skills directory. Keep `SKILL.md`, `references`, and `agents` together. Back up an existing installation before replacing it.
 
-For a standard Codex user installation, the destination is `~/.codex/skills/aurea-ui` (Windows: `%USERPROFILE%\.codex\skills\aurea-ui`). If you configured a different Codex home, use that location's `skills` directory. Start a new task/session if the agent does not yet show the skill.
+### Agent-specific locations
 
-The included Codex metadata enables implicit invocation. Other agents may use different discovery or activation conventions: follow the host's documentation. Cross-agent installation has not been independently verified.
+Choose one location for the application you use. Personal installs apply across projects; project installs belong inside the target project's root. Paths below end at the skill folder, which must contain `SKILL.md` directly.
+
+| Application | Personal installation | Project installation | Request the skill |
+| --- | --- | --- | --- |
+| [Codex](https://learn.chatgpt.com/docs/build-skills) | `~/.agents/skills/aurea-ui/` | `.agents/skills/aurea-ui/` | `$aurea-ui` or a relevant design request |
+| [Claude Code](https://code.claude.com/docs/en/skills) | `~/.claude/skills/aurea-ui/` | `.claude/skills/aurea-ui/` | `/aurea-ui` or a relevant design request |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | `~/.gemini/skills/aurea-ui/` | `.gemini/skills/aurea-ui/` | Ask to use Aurea UI; approve activation when prompted |
+| [Grok Build](https://docs.x.ai/build/features/skills-plugins-marketplaces) | `~/.grok/skills/aurea-ui/` | `.grok/skills/aurea-ui/` | `/aurea-ui` |
+
+`~` means your home directory; on Windows, for example, `~/.agents/skills/aurea-ui/` corresponds to `%USERPROFILE%\.agents\skills\aurea-ui`. These paths refer to the environment running the agent, which may be WSL or a remote machine rather than the desktop host.
+
+For an existing Codex installation already discovered under `~/.codex/skills/`, keep the working location unless your installed version requires migration. The table follows current official documentation. Avoid duplicate copies of the same skill in locations one host scans. In Gemini CLI, use `/skills list` to check discovery and `/skills reload` after copying. For other hosts, check their skill selector; restart if the skill is missing.
+
+### One core, different hosts
+
+All hosts use the same `SKILL.md` and `references/`; no separate design-rule fork is required. `agents/openai.yaml` is optional OpenAI-host metadata, not a restriction on which agents may use the core instructions. It enables implicit invocation for Codex but does not configure other hosts. Automatic selection still depends on the host, settings, permissions, and request relevance.
+
+The locations above were checked against official documentation on 2026-09-26. Aurea UI has been used in Codex; installation and end-to-end behavior in Claude Code, Gemini CLI, and Grok Build have **not** been independently tested. Documented skill support is not a guarantee of identical results. See the [cross-agent smoke test](docs/VALIDATION.md#cross-agent-smoke-test).
+
+For another agent that supports `SKILL.md`, use its documented discovery location. A model name alone does not establish skill support: chat websites and API integrations may differ from coding agents. If native skill loading is unavailable, supply `SKILL.md` and the references needed for your task manually, and ask the agent to follow them. Pasting the entrypoint alone does not make linked files accessible or enable browsing, image generation, or browser testing.
 
 ## Example requests
 
-> Use $aurea-ui to design a contemporary Vietnamese SaaS landing page. Research current references and implement one purposeful product-demo animation.
+> Use the Aurea UI skill to design a contemporary Vietnamese SaaS landing page. Research current references and implement one purposeful product-demo animation.
 
 > Review this long screenshot. Separate observed layout details from assumptions, then implement a responsive version using the existing stack.
 
