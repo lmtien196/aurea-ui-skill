@@ -21,6 +21,8 @@ These are evaluation prompts and acceptance criteria, not claimed completed demo
 | Dashboard recovery | Implement a saved filter and editable row with a failing API response | Working optimistic/reconciled state where appropriate; rollback; preserved input; direct route and retry checks |
 | Asset request | Produce a hero visual and responsive implementation | Correct image/software deliverables; crop and text-safe area; clear status if generation is unavailable |
 | Offline small fix | Fix one button alignment in an existing offline project | Local system preserved; no forced trend scan or unnecessary redesign |
+| Branded booking form | Build a compact hotel booking form with guest selection, dates, validation, and cancellation confirmation | Deliberate icon insets and long-value spacing; themed open selector/calendar/dialog; keyboard and focus checks; mobile overflow checks; no routine browser alerts |
+| Intentional platform UI | Preserve a requested native mobile date picker and add a file upload to a branded form | Explicit native choice preserved and target-platform coverage stated; website control styled where possible; OS file chooser and security UI left platform-owned |
 | No browser available | Review an implementation without a browser tool | Source findings separated from unverified rendered/motion behavior |
 
 For each run record date, agent/model, stack/package versions, viewport(s), actual tool availability, artifacts, observed results, and unresolved limitations. Do not infer mobile hardware performance from a desktop screenshot.

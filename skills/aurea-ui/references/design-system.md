@@ -144,6 +144,33 @@ For every interactive component, consider:
 
 Design edge states as part of the system: first use, empty, partial data, no results, offline, permission, destructive confirmation, long content, and short/missing content.
 
+## Form controls and overlays
+
+For branded websites and applications, design controls as part of the product in both closed and open states. Styling only the input border while leaving its dropdown, calendar, or feedback popup in an unrelated browser skin is incomplete.
+
+### Control anatomy
+
+- Give chevrons, calendar icons, clear buttons, and other trailing affordances an explicit inset token. Start around 12–16 CSS px from the control's inner edge for ordinary controls, then adapt to the existing density and spacing scale; do not treat this as a universal minimum.
+- Reserve space for the icon plus its label gap and edge inset. Use logical properties such as `padding-inline-end` and `inset-inline-end`; verify long values, localization, text resizing, and RTL where supported. Text must not run under icons.
+- Center icons optically, use the shared icon family, and separate icon size from the clickable target size. Decorative icons must not intercept control clicks or add redundant accessible names.
+- When replacing a native select arrow, remove the original arrow and supply one deliberate replacement; avoid doubled chevrons. This styles the trigger, not necessarily the native options popup.
+
+### Open surfaces and feedback
+
+Apply the same typography, surfaces, borders, radii, elevation, spacing, focus, and motion tokens to the trigger and its dropdown/listbox, calendar, popover, dialog, drawer, or toast. Include selected, disabled, error, and loading states where relevant. Portaled surfaces must receive the theme too; check viewport collision, stacking, scroll, and mobile layout.
+
+For a value selector, use an accessible select/combobox/listbox pattern, not action-menu semantics. For a date picker, design the calendar, navigation, current/selected/unavailable dates, and input/format guidance together. Reuse the project's accessible components or proven headless primitives before building complex interaction from scratch.
+
+Present application validation and routine feedback through styled inline messages, status regions, or toasts. Use a designed dialog when a decision genuinely requires interruption. Do not use browser `alert()`, `confirm()`, or `prompt()` as the normal product UI. Connect field errors programmatically and keep consequential errors available until resolved; a disappearing toast alone is insufficient.
+
+### Semantics and intentional platform UI
+
+Native semantics are compatible with a custom visual design: semantic inputs, buttons, and a styled native `<dialog>` can remain appropriate. Do not replace them with inaccessible clickable containers to achieve a visual effect. Verify keyboard operation, accessible names, focus visibility, dismissal, and focus restoration according to the chosen pattern; only modal surfaces contain focus.
+
+If the brief explicitly requests native controls, preserve that choice. If a mobile/system picker is intentionally retained for platform usability or accessibility, state the reason and test it on the target platform; do not present it as a fully themed custom picker. Browser permission prompts, file chooser windows, browser/OS-managed authentication and security prompts, and browser-managed navigation warnings stay platform-owned; do not imitate or attempt to replace trusted system UI.
+
+Before calling branded controls complete, inspect their open surfaces as well as their triggers using [visual-qa.md](visual-qa.md#form-control-and-overlay-verification).
+
 ## Component boundaries
 
 Create a new component only when it represents a reusable concept or interaction, not because a page needs a wrapper.

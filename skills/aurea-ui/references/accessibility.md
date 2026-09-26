@@ -8,6 +8,8 @@ Treat accessibility as mandatory product quality, not final polish. Use WCAG 2.2
 
 A component library or design system does not automatically make a product accessible. Verify the actual rendered experience and interaction.
 
+Native semantics do not require browser-default styling. Follow [design-system.md](design-system.md#form-controls-and-overlays) for branded controls and overlays while preserving the correct interaction pattern. Prefer proven accessible primitives for custom selectors and calendars; visual consistency is not a reason to remove keyboard behavior or replace semantic controls with clickable containers.
+
 ## Structure and semantics
 
 Use meaningful document structure with logical headings, landmarks, lists, buttons, links, labels, tables, and form controls.

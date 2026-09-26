@@ -150,7 +150,7 @@ Correct source code is not evidence of a correct interface.
 - Prefer one coherent icon, illustration, radius, shadow, and motion language.
 - Prefer a few memorable brand moments over decoration on every surface.
 - Prefer content-driven responsive behavior over device-name breakpoints.
-- Prefer native semantics over custom interaction when the platform already solves the problem well.
+- Preserve native semantics without treating browser-default appearance as the design. For branded form controls and overlays, follow the closed/open-state guidance in [references/design-system.md](references/design-system.md#form-controls-and-overlays).
 - Prefer a boring but trustworthy pattern over an impressive pattern that introduces confusion.
 
 ## Anti-patterns

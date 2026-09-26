@@ -42,6 +42,19 @@ When screenshot details are unreadable, use [reference-image-analysis.md](refere
 
 Pay special attention to awkward line breaks, uneven spacing, weak hierarchy, low contrast, inconsistent radii or shadows, poor image crops, broken dark mode, tiny touch targets, excessive whitespace, covered content, and unnecessary visual noise.
 
+## Form-control and overlay verification
+
+For branded forms, exercise the actual controls rather than accepting a screenshot of their closed state:
+
+- Inspect chevron and trailing-icon insets against the spacing tokens. Check vertical alignment, one arrow only, and enough reserved label space with long values, zoom, and supported RTL layouts.
+- Open each dropdown, calendar, popover, and dialog. Confirm that its typography, surface, border, radius, elevation, selected/disabled states, and focus treatment belong to the website, including portaled content and supported color modes.
+- Check placement near viewport edges, scroll containers, sticky layers, and the mobile keyboard. Ensure content remains reachable without clipping or accidental page overflow.
+- Use the keyboard to open, navigate, select, and dismiss according to the component pattern. Verify Escape where appropriate, visible focus, modal focus containment, and sensible focus restoration; non-modal dropdowns must not trap Tab navigation.
+- Trigger field errors, submission feedback, and destructive confirmation/cancellation. Check designed feedback, connected error text, preserved input, and announcements; do not accept default browser alerts as product feedback.
+- Record any intentionally retained native mobile picker or platform-owned UI and its rationale. Distinguish observed target-platform behavior from an untested assumption.
+
+If interaction tools are unavailable, report open-state appearance and behavior as unverified. A styled trigger or a passing build is not proof that its popup is themed or accessible.
+
 ## Animation verification in the browser
 
 For every promised signature moment, trigger it in the rendered application. Record the page/component, viewport, trigger, expected result, observed result, and any limitation. Capture before/during/after frames or a short recording when available; screenshots alone do not establish smoothness or correct timing.
