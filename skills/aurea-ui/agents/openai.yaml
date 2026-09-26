@@ -1,0 +1,11 @@
+interface:
+  display_name: "Aurea UI"
+  short_description: "Research-led product design and visual QA."
+  default_prompt: "Use $aurea-ui to design, implement, and visually verify a coherent product-specific web experience."
+policy:
+  products:
+  - "chatgpt"
+  - "codex"
+  - "api"
+  - "atlas"
+  allow_implicit_invocation: true
